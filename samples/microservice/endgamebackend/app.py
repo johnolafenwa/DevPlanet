@@ -2,12 +2,6 @@ from flask import Flask,request,render_template,redirect
 import psycopg2
 import os
 
-class Review(object):
-    def __init__(self,name,review):
-        self.name = name
-        self.review = review
-
-
 DB_USER = os.environ["DB_USER"]
 DB_PASSWORD = os.environ["DB_PASS"]
 DB = os.environ["DB"]
