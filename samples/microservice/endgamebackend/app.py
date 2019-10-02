@@ -1,6 +1,7 @@
 from flask import Flask,request,render_template,redirect
 import psycopg2
 import os
+import time
 
 DB_USER = os.environ["DB_USER"]
 DB_PASSWORD = os.environ["DB_PASS"]
@@ -16,9 +17,8 @@ def init_tables():
     cursor = conn.cursor()
     cursor.execute(CREATE_TABLE)
     conn.commit()
+    cursor.close()
     conn.close()
-
-init_tables()
 
 def add_review(name,review):
 
@@ -65,4 +65,7 @@ def listreviews():
 
     return {"success":True,"list":reviews}
 
+#Deferred execution by 20 seconds to allow database to initialize
+time.sleep(20)
+init_tables()
 app.run(host="0.0.0.0",port=5000)
