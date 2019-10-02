@@ -1,0 +1,110 @@
+<html>
+<head>
+
+    <style>
+    body{
+        background: navy;
+    }
+
+    .main-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .nav{
+
+        display: flex;
+       
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .main-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 30px;
+       
+    }
+
+    form{
+        background: white;
+        padding: 30px;
+    }
+    
+    .nav-item {
+        font: 30px;
+        color: white;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .nav-item:hover {
+        color: navy;
+        margin-left: 40px;
+        margin-right: 40px;
+        background: white;
+    }
+
+    textarea{
+        width: 400px;
+        height: 100px;
+    }
+
+    h1{
+        font-size: 60px;
+        color: white;
+    }
+    
+    .submit{
+        font-size: 20px;
+        color: white;
+        background:steelblue;
+        
+    }
+    input{
+        width: 400px;
+    }
+
+    label{
+        font-size: 30px;
+        
+    }
+
+    </style>
+
+</head>
+<body>
+    <div class="main-div">
+
+    <div class="nav">
+
+        <a href="/"><p class="nav-item">Submit Review</p></a>
+        <a href="/reviews"><p class="nav-item">Read Reviews</p></a>
+ 
+    </div>
+
+    <div class="main-container">
+    <form action="?" method="POST">
+
+        <label>Name: </label><br> <input name="name" type="text"> <br><br>
+        <label>Review: </label><br> <textarea name="review"></textarea> <br><br>
+        <input type="submit" class="submit" value="Submit Review">
+
+    </form>
+
+    </div>
+
+    <div class="main-container">
+
+    <br>
+    <i><h1> Avengers Endgame Reviews </h1></i>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

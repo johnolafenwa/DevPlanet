@@ -1,0 +1,38 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: john
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: endgame
+    volumes:
+      - dbvolume:/var/lib/postgresql/data
+    
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9090:8080
+
+  backend:
+    image: endgamereview:backend
+    environment:
+      DB_USER: john
+      DB_PASS: example
+      DB: endgame
+      DB_HOST: db
+    links:
+      - db
+
+  frontend:
+    image: endgamereview:frontend
+    ports:
+      - 80:5000
+    links:
+      - backend
+
+volumes:
+  dbvolume:
